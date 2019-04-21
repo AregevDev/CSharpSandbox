@@ -1,36 +1,25 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CSharpSandbox
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            while (true) 
+            Console.ForegroundColor = ConsoleColor.Blue;
+            var map = new Dictionary<string, Person>
             {
-                Runner();
-                Console.ReadLine();
-            }
-        }
-        
-        static async void Runner()
-        {
-            int t = await Task.Run(() => Allocate());
-            Console.WriteLine($"Compute: {t}");
-        }
+                { "Alon", new Person { Name = "Alon", Age = 11 } },
+                { "ImGay", new Person { Name = "ImgGay", Age = 14 } }
+            };
 
-        static int Allocate()
-        {
-            int size = 0;
-            Random r = new Random();
-            for (int z = 0; z < 100; z++)
+            foreach (var i in map)
             {
-                Person p = new Person { Age = r.Next(0, 101) };
-                size += p.Age;
+                Console.WriteLine($"{i.Key} = {i.Value}");
             }
 
-            return size;
+            Console.ForegroundColor = ConsoleColor.White;
         }
     }
-}
+} 
