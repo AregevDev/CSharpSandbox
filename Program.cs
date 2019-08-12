@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace CSharpSandbox
 {
@@ -7,19 +8,10 @@ namespace CSharpSandbox
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
-            var map = new Dictionary<string, Person>
-            {
-                { "Alon", new Person { Name = "Alon", Age = 11 } },
-                { "ImGay", new Person { Name = "ImgGay", Age = 14 } }
-            };
-
-            foreach (var i in map)
-            {
-                Console.WriteLine($"{i.Key} = {i.Value}");
-            }
-
-            Console.ForegroundColor = ConsoleColor.White;
+            var vecA = Vector<double>.Build.DenseOfArray(new double[] { 1, 2, 3 });
+            var vecB = Vector<double>.Build.DenseOfArray(new double[] { 4, 5, 6 });
+            
+            System.Console.WriteLine(vecA + vecB);
         }
     }
 } 
